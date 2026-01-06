@@ -1,0 +1,62 @@
+[project]
+name = "django-enterprise-template"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Vladyslav Shesternyov", email = "vladyslav.shesternyov22@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.12"
+
+dependencies = [
+    "django (>=6.0,<7.0)",
+    "python-dotenv (>=1.2.1,<2.0.0)",
+    "psycopg2 (>=2.9.11,<3.0.0)",
+    "uvicorn (>=0.40.0,<0.41.0)",
+    "gunicorn (>=23.0.0,<24.0.0)"
+]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[dependency-groups]
+dev = [
+    "black (>=25.12.0,<26.0.0)",
+    "isort (>=7.0.0,<8.0.0)",
+    "ruff (>=0.14.10,<0.15.0)"
+]
+
+[tool.black]
+# Maximum allowed line length; Black will wrap code automatically
+line-length = 88
+
+[tool.isort]
+# Use Black-compatible import formatting profile
+profile = "black"
+# Maximum allowed line length for import sorting; must match Black
+line_length = 88
+
+[tool.ruff]
+# Maximum allowed line length; aligned with Black to avoid conflicts
+line-length = 88
+
+[tool.ruff.lint]
+# Rule categories that Ruff should enforce:
+select = [
+    "E",   # pycodestyle errors (PEP8-related code style issues)
+    "F",   # pyflakes (undefined names, unused imports, etc.)
+    "W",   # pycodestyle warnings (additional style checks)
+    "I",   # isort integration (checks import ordering)
+    "N",   # pep8-naming (class, function, variable naming conventions)
+]
+
+# Rules to ignore:
+ignore = [
+    "E501" # line too long (handled by Black instead)
+]
+
+# Additional rules to enforce:
+extend-select = [
+    "T20" # disallow 'print' statements (encourages proper logging)
+]
