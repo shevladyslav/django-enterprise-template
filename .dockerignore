@@ -1,0 +1,36 @@
+# never copy Windows/Linux local env into docker
+.venv
+
+# python cache
+**/__pycache__
+*.pyc
+*.pyo
+*.pyd
+
+# git
+.git
+.gitignore
+
+# editor/mypy caches
+.mypy_cache
+.pytest_cache
+
+# env files
+.env
+.env.*
+.env*
+
+# docker meta
+docker
+
+# idea
+.idea/
+
+# ruff
+.ruff_cache
+
+# Makefile
+Makefile
+
+# LICENSE
+LICENSE

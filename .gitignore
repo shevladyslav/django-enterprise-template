@@ -1,0 +1,9 @@
+# IDE configs
+.idea
+
+# Virtual Environment
+.venv
+
+# ENV
+.env
+.env.prod
