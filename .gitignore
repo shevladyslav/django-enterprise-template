@@ -7,3 +7,6 @@
 # ENV
 .env
 .env.prod
+
+# Coverage
+.coverage
