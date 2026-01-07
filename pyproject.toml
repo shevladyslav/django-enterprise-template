@@ -13,7 +13,8 @@ dependencies = [
     "python-dotenv (>=1.2.1,<2.0.0)",
     "psycopg2 (>=2.9.11,<3.0.0)",
     "uvicorn (>=0.40.0,<0.41.0)",
-    "gunicorn (>=23.0.0,<24.0.0)"
+    "gunicorn (>=23.0.0,<24.0.0)",
+    "djangorestframework (>=3.16.1,<4.0.0)",
 ]
 
 [build-system]
@@ -24,7 +25,10 @@ build-backend = "poetry.core.masonry.api"
 dev = [
     "black (>=25.12.0,<26.0.0)",
     "isort (>=7.0.0,<8.0.0)",
-    "ruff (>=0.14.10,<0.15.0)"
+    "ruff (>=0.14.10,<0.15.0)",
+    "pytest (>=9.0.2,<10.0.0)",
+    "pytest-django (>=4.11.1,<5.0.0)",
+    "pytest-cov (>=7.0.0,<8.0.0)"
 ]
 
 [tool.black]
