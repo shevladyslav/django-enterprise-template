@@ -1,3 +1,4 @@
+from drf_spectacular.utils import OpenApiResponse, extend_schema
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -14,6 +15,20 @@ class HealthCheckView(APIView):
     authentication_classes = []
     permission_classes = []
 
+    @extend_schema(
+        summary="Health check",
+        description="Returns application health status",
+        responses={
+            200: OpenApiResponse(
+                response={
+                    "type": "object",
+                    "properties": {"status": {"type": "string"}},
+                    "example": {"status": "ok"},
+                }
+            )
+        },
+        tags=["Utils"],
+    )
     def get(self, request):
         """
         Return application health status.

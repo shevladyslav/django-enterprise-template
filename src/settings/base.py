@@ -19,6 +19,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     # third-party packages
     "rest_framework",
+    "drf_spectacular",
     # project apps
     "apps.core",
 ]
@@ -90,3 +91,30 @@ STATIC_URL = "/static/"
 STATIC_ROOT = "/staticfiles"
 
 API_PREFIX = "/api/v1"
+
+REST_FRAMEWORK = {
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
+    "EXCEPTION_HANDLER": "apps.core.exception_handler.drf_json_exception_handler",
+}
+
+# Swagger documentation (DRF-Spectacular)
+SPECTACULAR_SETTINGS = {
+    # API metadata displayed in Swagger UI and OpenAPI schema
+    "TITLE": "Project API",  # Human-readable API name
+    "DESCRIPTION": "API documentation for Project",  # Short description of the API
+    "VERSION": "1.0.0",  # API contract version (not Django or backend version)
+    # Do not expose the schema endpoint itself in Swagger UI
+    "SERVE_INCLUDE_SCHEMA": False,
+    # Split request and response schemas into separate components
+    # This is important because request payloads often differ from responses
+    "COMPONENT_SPLIT_REQUEST": True,
+    # Swagger UI behavior and UX settings
+    "SWAGGER_UI_SETTINGS": {
+        # Enables deep linking to specific endpoints via URL fragments
+        "deepLinking": True,
+        # Persist Authorization header (e.g. JWT) across page reloads
+        "persistAuthorization": True,
+        # Display request execution time in Swagger UI
+        "displayRequestDuration": True,
+    },
+}
