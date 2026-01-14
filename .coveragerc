@@ -4,6 +4,7 @@ source =
 omit =
     */migrations/*
     */tests/*
+    */urls.py
     src/manage.py
     src/asgi.py
     src/wsgi.py

@@ -16,6 +16,8 @@ dependencies = [
     "gunicorn (>=23.0.0,<24.0.0)",
     "djangorestframework (>=3.16.1,<4.0.0)",
     "drf-spectacular (>=0.29.0,<0.30.0)",
+    "celery (>=5.6.2,<6.0.0)",
+    "redis (>=7.1.0,<8.0.0)",
 ]
 
 [build-system]
@@ -54,6 +56,9 @@ select = [
     "W",   # pycodestyle warnings (additional style checks)
     "I",   # isort integration (checks import ordering)
     "N",   # pep8-naming (class, function, variable naming conventions)
+    "B",   # flake8-bugbear
+    "S",    # flake8-bandit (partial)
+    "SIM"  # flake8-simplify
 ]
 
 # Rules to ignore:
@@ -65,3 +70,7 @@ ignore = [
 extend-select = [
     "T20" # disallow 'print' statements (encourages proper logging)
 ]
+
+[tool.ruff.lint.per-file-ignores]
+# Pytest relies on `assert`, so disable S101 (assert usage) in tests
+"**/tests/**" = ["S101"]
