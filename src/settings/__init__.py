@@ -9,8 +9,7 @@ ENV_TO_SETTINGS = {
 
 def load_settings():
     env = os.getenv("DJANGO_ENV", "local")
-
-    settings_module = ENV_TO_SETTINGS.get(env, None)
+    settings_module = ENV_TO_SETTINGS.get(env)
 
     if not settings_module:
         raise RuntimeError(
