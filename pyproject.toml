@@ -6,7 +6,7 @@ authors = [
     {name = "Vladyslav Shesternyov", email = "vladyslav.shesternyov22@gmail.com"}
 ]
 readme = "README.md"
-requires-python = ">=3.12"
+requires-python = ">=3.12,<4.0"
 
 dependencies = [
     "django (>=6.0,<7.0)",
@@ -31,7 +31,9 @@ dev = [
     "ruff (>=0.14.10,<0.15.0)",
     "pytest (>=9.0.2,<10.0.0)",
     "pytest-django (>=4.11.1,<5.0.0)",
-    "pytest-cov (>=7.0.0,<8.0.0)"
+    "pytest-cov (>=7.0.0,<8.0.0)",
+    "pip-audit (>=2.10.0,<3.0.0)",
+    "django-silk (>=5.4.3,<6.0.0)",
 ]
 
 [tool.black]
