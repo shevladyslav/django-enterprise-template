@@ -124,3 +124,30 @@ SPECTACULAR_SETTINGS = {
         "displayRequestDuration": True,
     },
 }
+
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "formatters": {
+        "block": {
+            "format": (
+                "────────────────────────────────────────\n"
+                "[%(asctime)s]  %(levelname)-5s  %(name)s\n\n"
+                "    Line:    %(lineno)s\n"
+                "    Message: %(message)s\n"
+                "────────────────────────────────────────"
+            ),
+            "datefmt": "%H:%M:%S",
+        },
+    },
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
+            "formatter": "block",
+        },
+    },
+    "root": {
+        "handlers": ["console"],
+        "level": "INFO",
+    },
+}

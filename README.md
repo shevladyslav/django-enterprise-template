@@ -10,6 +10,3 @@
 `docker compose -f docker/docker-compose-develop.yaml exec django poetry run pytest --cov --cov-report=term-missing`
 
 ### TODO:
-
-- pip-audit
-- detect-secrets

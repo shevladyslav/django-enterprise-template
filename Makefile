@@ -8,6 +8,9 @@ lint:
 fix:
 	poetry run ruff check ./src --fix
 
+audit:
+	poetry run pip-audit --strict
+
 test:
 	docker compose -f docker/docker-compose-develop.yaml exec django poetry run pytest
 
