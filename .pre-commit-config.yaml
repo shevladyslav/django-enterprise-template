@@ -4,14 +4,12 @@ repos:
     hooks:
       - id: black
         language_version: python3.12
-        args: [--line-length=88]
         files: ^src/
 
   - repo: https://github.com/PyCQA/isort
     rev: 7.0.0
     hooks:
       - id: isort
-        args: ["--profile", "black"]
         files: ^src/
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
