@@ -5,8 +5,11 @@ format:
 lint:
 	poetry run ruff check ./src
 
-fix:
+lint-fix:
 	poetry run ruff check ./src --fix
+
+typecheck:
+	poetry run mypy ./src
 
 audit:
 	poetry run pip-audit --strict
