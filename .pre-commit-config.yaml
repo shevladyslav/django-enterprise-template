@@ -1,0 +1,37 @@
+repos:
+  - repo: https://github.com/psf/black
+    rev: 25.12.0
+    hooks:
+      - id: black
+        language_version: python3.12
+        args: [--line-length=88]
+        files: ^src/
+
+  - repo: https://github.com/PyCQA/isort
+    rev: 7.0.0
+    hooks:
+      - id: isort
+        args: ["--profile", "black"]
+        files: ^src/
+
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.14.10
+    hooks:
+      - id: ruff
+        files: ^src/
+
+  - repo: local
+    hooks:
+      - id: mypy
+        name: mypy (poetry)
+        entry: poetry run mypy ./src
+        language: system
+        pass_filenames: false
+
+  - repo: local
+    hooks:
+      - id: pip-audit
+        name: pip-audit
+        entry: poetry run pip-audit --strict
+        language: system
+        pass_filenames: false
