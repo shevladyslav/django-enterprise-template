@@ -32,9 +32,9 @@ jobs:
           path: .venv
           key: venv-${{ runner.os }}-${{ hashFiles('**/poetry.lock') }}
 
-      - name: Install dependencies
+      - name: Install dev dependencies
         if: steps.cache-deps.outputs.cache-hit != 'true'
-        run: poetry install --no-interaction --no-root
+        run: poetry install --only dev --no-interaction --no-root
 
       - name: Run lint and typecheck
         run: |
