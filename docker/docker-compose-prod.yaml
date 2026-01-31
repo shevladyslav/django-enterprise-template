@@ -7,7 +7,8 @@ services:
       dockerfile: ./docker/Dockerfile.python.prod
     restart: always
     env_file:
-      - ../.env.prod
+      - path: ../.env.prod
+        required: false
     ports:
       - "8000:8000"
     volumes:
@@ -23,7 +24,8 @@ services:
       context: ..
       dockerfile: ./docker/Dockerfile.python.prod
     env_file:
-      - ../.env.prod
+      - path: ../.env.prod
+        required: false
     command:
       [
         "poetry",
@@ -49,7 +51,8 @@ services:
       context: ..
       dockerfile: ./docker/Dockerfile.python.dev
     env_file:
-      - ../.env
+      - path: ../.env
+        required: false
     environment:
       PYTHONPATH: /app/src
     command:
@@ -75,7 +78,8 @@ services:
     image: mher/flower:latest
     restart: unless-stopped
     env_file:
-      - ../.env.prod
+      - path: ../.env.prod
+        required: false
     environment:
       CELERY_BROKER_URL: redis://redis:6379/0
       FLOWER_PORT: 5555
@@ -102,7 +106,8 @@ services:
     image: postgres:latest
     restart: always
     env_file:
-      - ../.env.prod
+      - path: ../.env.prod
+        required: false
     volumes:
       - postgres_data:/var/lib/postgresql/data
     ports:
@@ -119,7 +124,8 @@ services:
     image: dpage/pgadmin4:latest
     restart: always
     env_file:
-      - ../.env.prod
+      - path: ../.env.prod
+        required: false
     ports:
       - "5050:80"
     depends_on:

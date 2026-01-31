@@ -9,7 +9,8 @@ services:
     volumes:
       - ../src:/app/src
     env_file:
-      - ../.env
+      - path: ../.env
+        required: false
     command:
       [
         "poetry",
@@ -36,7 +37,8 @@ services:
     volumes:
       - ../src:/app/src
     env_file:
-      - ../.env
+      - path: ../.env
+        required: false
     environment:
       PYTHONPATH: /app/src
     command:
@@ -66,7 +68,8 @@ services:
     volumes:
       - ../src:/app/src
     env_file:
-      - ../.env
+      - path: ../.env
+        required: false
     environment:
       PYTHONPATH: /app/src
     command:
