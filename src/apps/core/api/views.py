@@ -29,12 +29,6 @@ class HealthCheckView(APIView):
         },
         tags=["Utils"],
     )
-
-
-
-
-
-
     def get(self, request):
         """
         Return application health status.
